@@ -1,0 +1,93 @@
+ScreenManager:
+    LoginScreen:
+    HomeScreen:
+    CameraScreen:
+
+<LoginScreen>:
+    name: 'login_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(50)
+        spacing: dp(20)
+        MDLabel:
+            text: "Вход"
+            halign: "center"
+            font_style: "H5"
+        MDTextField:
+            id: username
+            hint_text: "Имя пользователя"
+            mode: "fill"
+            size_hint_x: None
+            width: dp(300)
+        MDTextField:
+            id: password
+            hint_text: "Пароль"
+            mode: "fill"
+            size_hint_x: None
+            width: dp(300)
+            password: True
+        MDRaisedButton:
+            text: "Войти"
+            pos_hint: {"center_x": .5}
+            on_release: root.login()
+        MDLabel:
+            id: login_status
+            halign: "center"
+            theme_text_color: "Error"
+
+<HomeScreen>:
+    name: 'home_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(50)
+        spacing: dp(20)
+        MDLabel:
+            text: "Добро пожаловать!"
+            halign: "center"
+            font_style: "H5"
+        MDRaisedButton:
+            text: "Кнопка 1"
+            pos_hint: {"center_x": .5}
+            on_release: root.button1_action()
+        MDRaisedButton:
+            text: "Кнопка 2"
+            pos_hint: {"center_x": .5}
+            on_release: root.button2_action()
+        MDRaisedButton:
+            text: "Камера"
+            pos_hint: {"center_x": .5}
+            on_release: root.show_camera()
+
+<CameraScreen>:
+    name: 'camera_screen'
+
+    FloatLayout:
+        Image:
+            id: image
+            size_hint: (1, 1)
+        MDRaisedButton:
+            id: capture_button
+            text: "Зафиксировать"
+            size_hint: None, None
+            size: dp(100), dp(50)
+            pos_hint: {"center_x": .5, "bottom": 0.2}
+            on_release: root.capture_image()
+            disabled: True
+        MDRaisedButton:
+            id: repeat_button
+            text: "Повторить"
+            size_hint: None, None
+            size: dp(100), dp(50)
+            pos_hint: {"center_x": 0.3, "bottom": 0.2}
+            on_release: root.repeat_process()
+            disabled: True
+        MDRaisedButton:
+            id: results_button
+            text: "Показать результаты"
+            size_hint: None, None
+            size: dp(150), dp(50)
+            pos_hint: {"center_x": 0.7, "bottom": 0.2}
+            on_release: root.show_results()
+            disabled: True

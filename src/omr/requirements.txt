@@ -1,0 +1,7 @@
+numpy
+olefile
+opencv-python
+Pillow
+qrcode
+sir
+zbarlight
